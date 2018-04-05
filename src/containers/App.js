@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Http from '../components/Http/Http';
-import Post from '../components/Post/Post';
+import Posts from '../components/Posts/Posts';
 import NewPost from '../components/NewPost/NewPost';
 import axios from 'axios';
 import logo from '../logo.svg';
@@ -20,23 +20,16 @@ class App extends Component {
   }
 
   render() {
-    const posts = this.state.posts.map(post => {
-      return <Post 
-      title={post.title}
-      body={post.body}
-      key={post.id}
-      />;
-    });
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Http
-          clicked={this.sendHTTPRequest}
-          />
+          <h1>I send HTTP requests</h1>
+          <button onClick={this.sendHTTPRequest}>Send GET HTTP request</button>
         </header>
-      <NewPost />
-      {posts}
+        <NewPost />
+      <Posts 
+      posts={this.state.posts}/>
       </div>
     );
   }

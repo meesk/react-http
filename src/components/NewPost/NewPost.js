@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NewPost.css';
 import axios from 'axios';
+
 class NewPost extends Component {
     state = {
         title:'',
@@ -21,6 +22,7 @@ class NewPost extends Component {
             console.log(response);
         });
     }
+    
     render() { 
         return ( 
             <div className="NewPost">
